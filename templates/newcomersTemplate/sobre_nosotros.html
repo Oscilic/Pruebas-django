@@ -1,0 +1,38 @@
+{% extends "landing_template.html" %}
+{% load static %}
+{% block title %}Sobre Nosotros{% endblock %}
+
+{% block content %}
+    <div class="container-fluid" width="100vw">
+        <div class="row justify-content-center rounded-4 mx-1 align-items-center shadow-sm" id="content_card">
+            <div class="col-lg-6">
+                <img src="{% static 'img/ext_gmexp.jpg' %}" alt="Exterior de local GM-Express" class="img-fluid rounded-2 shadow-sm my-3" max-width="75%" height="auto">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="fs-3 fw-bold mb-3">Sobre Nosotros</h2>
+                <h3 class="fs-5 fw-semibold mb-4 text-primary">Nuestro objetivo es proporcionar soluciones de excelencia y alta calidad</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">GM-Express es una empresa Chilena de Servicios de Alimentación, formada por un equipo de profesionales completamente comprometidos día a día trabaja orientando sus acciones para asegurar y promover el bienestar nutricional mejorando la experiencia y calidad de vida de sus clientes. Ofrecemos soluciones personalizadas y una rápida capacidad de respuesta a la mejor relación calidad-precio del mercado. Para GM-Express, tú eres lo más importante.</p>
+            </div>
+        </div>
+        <div class="row justify-content-center gap-4 rounded-4 mx-1 mt-2 align-items-stretch shadow-sm" id="content_card">
+            <div class="col-5 rounded-2 my-3 text-center align-content-center shadow-sm" id="mv">
+                <h4 class="fs-3 fw-bold mt-3">Nuestra misión</h4>
+                <p class="fs-6 fw-normal lh-4">Más que un servicio de alimentación, queremos entregar confianza y la mejor experiencia a nuestros clientes para contribuir a sus objetivos, ser siempre relevantes en sus vidas y establecer relaciones perdurables esforzándonos día a día para entregar un servicio integral, amable y oportuno de manera sostenible.</p>
+            </div>
+            <div class="col-5 rounded-2 my-3 text-center align-content-center shadow-sm" id="mv">
+                <h4 class="fs-3 fw-bold">Nuestra visión</h4>
+                <p class="fs-6 fw-normal lh-4">Consolidarnos como una empresa de alimentación sostenible y de excelencia en la región, reconocida por superar y entregar la mejor experiencia a sus clientes, con productos y servicios de alta calidad y confiabilidad.</p>
+            </div>
+        </div>
+        <div class="shadow-sm rounded-4 mx-1 my-3" id="content_card">
+            <div class="p-4">
+                <h2 class="fs-3 fw-bold mb-3">Nuestra historia</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">En GM Express iniciamos nuestro camino en el año 2001, cuando comenzamos como Restaurante El Corsario, un emprendimiento familiar dedicado a la atención tradicional en línea. Durante casi dos décadas operamos de manera estable, aunque sin una orientación corporativa definida.</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">En 2020, frente al complejo escenario generado por la pandemia y sus efectos en la industria de la alimentación empresarial, redefinimos nuestra estrategia y reestructuramos la organización bajo el nombre GM Express, enfocándonos en el servicio de alimentación colectiva y corporativa.</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">Este cambio nos permitió innovar en nuestros procesos, implementar sistemas de control de calidad y diversificar nuestra oferta, incorporando servicios como alimentación transportada, coffee break, concesión de casinos y repostería interna. Gracias a ello, logramos superar la crisis y transformarnos en una empresa en expansión.</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">En pocos años pasamos de una operación local con 7 trabajadores a contar con un equipo de más de 45 colaboradores, cinco sucursales y una producción diaria de entre 800 y 900 servicios. Hoy nos posicionamos como un actor relevante en la alimentación colectiva en la Región de Coquimbo, atendiendo a empresas mineras, colegios, universidades y organizaciones públicas y privadas.</p>
+                <p class="fs-6 fw-normal text-secondary lh-lg">Nuestra propuesta de valor se centra en la calidad, la innovación, la no repetición de menús durante un mes, la flexibilidad en la atención y la entrega de una experiencia integral a cada cliente.</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
