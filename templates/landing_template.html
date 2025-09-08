@@ -5,6 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}template{% endblock %}</title>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'styles/generic.css' %}">
 </head>
@@ -15,9 +16,6 @@
                 <ul class="navbar-nav">
                     <li class="nav-item mx-2">
                         <a href="{% url 'inicio' %}" class="btn btn-dark {% if request.resolver_match.url_name == 'inicio' %}disabled{% endif %}">Inicio</a>
-                    </li>
-                    <li class="nav-item mx-2">
-                        <a href="{% url 'catalogo' %}" class="btn btn-dark {% if request.resolver_match.url_name == 'catalogo' %}disabled{% endif %}">Catálogo</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a href="{% url 'nosotros' %}" class="btn btn-dark {% if request.resolver_match.url_name == 'nosotros' %}disabled{% endif %}">Sobre Nosotros</a>

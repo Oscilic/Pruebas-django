@@ -4,11 +4,63 @@
 
 {% block content %}
     <div class="container-fluid" width="100vw">
-        <div class="row justify-content-center rounded-4 mx-1 align-items-center shadow-sm" id="content_card">
-            <div class="col-lg-12 text-center">
-                <h2 class="fs-3 fw-bold mb-3">Bienvenido a GM-Express</h2>
-                <p class="fs-6 fw-normal text-secondary lh-lg">Somos una empresa chilena dedicada a ofrecer servicios de alimentación de alta calidad. Explora nuestro sitio para conocer más sobre nuestros servicios y valores.</p>
+        <div class="row align-items-center my-4">
+            <div class="col-6 d-flex align-items-center">
+                <h2 class="fs-3 fw-bold mb-0">Nuestros productos</h2>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center">
+                <div class="dropdown">
+                    <button class="btn btn-outline-success dropdown-toggle" type="button" id="serviceFilter" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filtrar por servicio
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="serviceFilter">
+                        <li><a class="dropdown-item" href="#" onclick="filterProducts(-1)">Todos</a></li>
+                        {% for service in services %}
+                            <li><a class="dropdown-item" href="#" onclick="filterProducts({{ forloop.counter0 }})">{{ service }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
         </div>
+        <div class="row" id="productsGrid">
+            {% for key, product in products.items %}
+                <div class="col-lg-2 col-md-4 col-sm-6 mb-4 product-card" data-service="{{ key|slice:':1' }}">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body rounded-2" id="mv">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 class="card-title mb-0">{{ product.nombre }}</h5>
+                                <button class="btn btn-sm btn-outline-light" type="button" tabindex="0" data-bs-toggle="popover" data-bs-trigger="focus" title="Detalles de {{ product.nombre }}" data-bs-content="<strong>Descripción:</strong> {{ product.descripcion }}<br><strong>Ingredientes:</strong> {{ product.ingredientes|join:', ' }}<br><strong>Condiciones:</strong> {{ product.condiciones }}">
+                                    <span>&#x25BC;</span>
+                                </button>
+                            </div>
+                            <p class="card-text mt-2">{{ product.descripcion }}</p>
+                            <img src="{% static 'img/' %}{{ key }}.png" class="img-fluid my-2" alt="Imagen de {{ product.nombre }}" style="max-height:120px; object-fit:cover; width:100%;">
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+        popoverTriggerList.forEach(function (popoverTriggerEl) {
+            new bootstrap.Popover(popoverTriggerEl, {
+                html: true,
+                placement: 'auto',
+                container: 'body'
+            });
+        });
+    });
+    function filterProducts(serviceIdx) {
+        var cards = document.querySelectorAll('.product-card');
+        cards.forEach(function(card) {
+            if (serviceIdx === -1 || card.getAttribute('data-service') == serviceIdx) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    </script>
 {% endblock %}
