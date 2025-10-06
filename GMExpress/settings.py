@@ -1,5 +1,4 @@
 from pathlib import Path
-<<<<<<< HEAD
 import json
 import os
 with open('credentials.json', "r") as f:
@@ -8,9 +7,6 @@ with open('credentials.json', "r") as f:
     db_password = data[0]["password"]
     db_host = data[0]["host"]
     db_port = data[0]["port"]
-=======
-import os
->>>>>>> 03111694c037b4df1ddfc8be2ffdf62509412168
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -28,10 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'newcomers',
-<<<<<<< HEAD
     'product_view'
-=======
->>>>>>> 03111694c037b4df1ddfc8be2ffdf62509412168
 ]
 
 MIDDLEWARE = [
