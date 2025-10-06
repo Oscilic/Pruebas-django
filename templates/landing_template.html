@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}template{% endblock %}</title>
+    <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/generic.css' %}">
+</head>
+<body>
+    <div class="container-fluid m-0 p-0">
+        <nav class="navbar navbar-expand-lg" id="navbar" width="100vw">
+            <div class="container-fluid justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item mx-2">
+                        <a href="{% url 'inicio' %}" class="btn btn-dark {% if request.resolver_match.url_name == 'inicio' %}disabled{% endif %}">Inicio</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a href="{% url 'nosotros' %}" class="btn btn-dark {% if request.resolver_match.url_name == 'nosotros' %}disabled{% endif %}">Sobre Nosotros</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {% block content %}
+        <!-- Insertar contenido de bloque -->
+        {% endblock %}
+    </div>
+</body>
+</html>
